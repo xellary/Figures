@@ -24,14 +24,10 @@ public class Cone extends Figure {
         pointOnCircle = points.get(1);
         apex = points.get(2);
 
-        double[] vector1 = { pointOnCircle.x - center.x, pointOnCircle.y - center.y, pointOnCircle.z - center.z };
-        double[] vector2 = { apex.x - center.x, apex.y - center.y, apex.z - center.z };
+        double radius = lengthCalculation(center, pointOnCircle);
+        double height = lengthCalculation(center, apex);
 
-        double crossProductX = vector1[1] * vector2[2] - vector1[2] * vector2[1];
-        double crossProductY = vector1[2] * vector2[0] - vector1[0] * vector2[2];
-        double crossProductZ = vector1[0] * vector2[1] - vector1[1] * vector2[0];
-
-        return crossProductX == 0 && crossProductY == 0 && crossProductZ == 0;
+        return radius > 0 && height > 0;
     }
 
     @Override

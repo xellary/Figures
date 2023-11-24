@@ -28,7 +28,9 @@ public class Figure {
         int vector1Y = p2.y - p1.y;
         int vector2X = p3.x - p2.x;
         int vector2Y = p3.y - p2.y;
+
         return vector1X * vector2X + vector1Y * vector2Y == 0;
+
     }
 
     protected boolean AllAnglesAreEqual(Point p1, Point p2, Point p3, Point p4) {

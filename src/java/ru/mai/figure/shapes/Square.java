@@ -47,4 +47,5 @@ public class Square extends Figure {
     private boolean sidesAreEqual() {
         return side1 == side2 && side3 == side4 && side1 == side3;
     }
+
 }

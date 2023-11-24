@@ -25,16 +25,18 @@ public class Cylinder extends Figure {
         pointOnBaseCircle = points.get(1);
         topCenter = points.get(2);
 
-        if (baseCenter.x == pointOnBaseCircle.x
-                && baseCenter.y == pointOnBaseCircle.y
-                && baseCenter.z == pointOnBaseCircle.z) {
+        if (baseCenter.equals(pointOnBaseCircle)) {
             return false;
         }
-        double radius = Math.sqrt(Math.pow(pointOnBaseCircle.x - baseCenter.x, 2)
-                + Math.pow(pointOnBaseCircle.y - baseCenter.y, 2)
-                + Math.pow(pointOnBaseCircle.z - baseCenter.z, 2));
 
-        return !(radius <= 0) && topCenter.z > baseCenter.z;
+        double radiusSquared = Math.pow(pointOnBaseCircle.x - baseCenter.x, 2)
+                + Math.pow(pointOnBaseCircle.y - baseCenter.y, 2)
+                + Math.pow(pointOnBaseCircle.z - baseCenter.z, 2);
+        if (radiusSquared <= 0) {
+            return false;
+        }
+        double height = Math.abs(topCenter.z - baseCenter.z);
+        return height > 0;
     }
     @Override
     public void areaCalculation() {
