@@ -32,11 +32,12 @@ public class Parallelogram extends Figure {
         p2 = points.get(1);
         p3 = points.get(2);
         p4 = points.get(3);
-        double[] vectorAB = {p2.x - p1.x, p2.y - p1.y};
-        double[] vectorCD = {p4.x - p3.x, p4.y - p3.y};
+        int vector1X = p2.x - p1.x;
+        int vector1Y = p2.y - p1.y;
+        int vector2X = p4.x - p3.x;
+        int vector2Y = p4.y - p3.y;
 
-        double dotProduct = vectorAB[0] * vectorCD[0] + vectorAB[1] * vectorCD[1];
-        return dotProduct == 0;
+        return vector1X * vector2Y - vector1Y * vector2X == 0;
     }
 
     @Override
