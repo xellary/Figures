@@ -4,6 +4,8 @@ import ru.mai.figure.point.Point;
 
 import java.util.ArrayList;
 
+import static ru.mai.figure.consts.Consts.*;
+
 public class TruncatedSphere extends Figure {
     private final ArrayList<Point> points;
     private Point center;
@@ -15,7 +17,7 @@ public class TruncatedSphere extends Figure {
 
     @Override
     public boolean figureValidation() {
-        if (points.size() != 3) {
+        if (points.size() != AMOUNT_OF_POINTS_THREE) {
             return false;
         }
         center = points.get(0);

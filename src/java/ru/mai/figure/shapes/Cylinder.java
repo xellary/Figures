@@ -4,6 +4,8 @@ import ru.mai.figure.point.Point;
 
 import java.util.ArrayList;
 
+import static ru.mai.figure.consts.Consts.*;
+
 public class Cylinder extends Figure {
     private final ArrayList<Point> points;
     private Point baseCenter;
@@ -16,7 +18,7 @@ public class Cylinder extends Figure {
 
     @Override
     public boolean figureValidation() {
-        if (points.size() != 3) {
+        if (points.size() != AMOUNT_OF_POINTS_THREE) {
             return false;
         }
         baseCenter = points.get(0);

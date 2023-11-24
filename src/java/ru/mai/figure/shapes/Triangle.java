@@ -18,7 +18,7 @@ public class Triangle extends Figure {
 
     @Override
     public boolean figureValidation() {
-        if (points.size() == AMOUNT_OF_POINTS_TRIANGLE) {
+        if (points.size() == AMOUNT_OF_POINTS_THREE) {
             Point p1 = points.get(FIRST_POINT);
             Point p2 = points.get(SECOND_POINT);
             Point p3 = points.get(THIRD_POINT);

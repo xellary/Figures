@@ -1,8 +1,11 @@
 package ru.mai.figure.shapes;
+
 import ru.mai.figure.point.Point;
 
 import java.util.ArrayList;
+
 import static ru.mai.figure.consts.Consts.*;
+
 public class Circle extends Figure {
     private final ArrayList<Point> points;
     private Point p1;
@@ -13,7 +16,7 @@ public class Circle extends Figure {
 
     @Override
     public boolean figureValidation() {
-        if (points.size() == AMOUNT_OF_POINTS_CIRCLE) {
+        if (points.size() == AMOUNT_OF_POINTS_TWO) {
             p1 = points.get(FIRST_POINT);
             p2 = points.get(SECOND_POINT);
             return !(p1.x == p2.x && p1.y == p2.y && p1.z == p2.z);

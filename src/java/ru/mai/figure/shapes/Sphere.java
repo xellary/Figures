@@ -4,6 +4,8 @@ import ru.mai.figure.point.Point;
 
 import java.util.ArrayList;
 
+import static ru.mai.figure.consts.Consts.*;
+
 public class Sphere extends Figure {
     private final ArrayList<Point> points;
     private Point center;
@@ -14,7 +16,7 @@ public class Sphere extends Figure {
 
     @Override
     public boolean figureValidation() {
-        if (points.size() != 2) {
+        if (points.size() != AMOUNT_OF_POINTS_TWO) {
             return false;
         }
         center = points.get(0);

@@ -4,6 +4,8 @@ import ru.mai.figure.point.Point;
 
 import java.util.ArrayList;
 
+import static ru.mai.figure.consts.Consts.*;
+
 public class Parallelogram extends Figure {
     private final ArrayList<Point> points;
     private Point p1;
@@ -16,7 +18,7 @@ public class Parallelogram extends Figure {
 
     @Override
     public boolean figureValidation() {
-        if (points.size() != 4) {
+        if (points.size() != AMOUNT_OF_POINTS_FOUR) {
             return false;
         }
         for (int i = 0; i < points.size(); i++) {

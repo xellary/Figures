@@ -18,7 +18,7 @@ public class Square extends Figure {
 
     @Override
     public boolean figureValidation() {
-        if (points.size() == AMOUNT_OF_POINTS_SQUARE) {
+        if (points.size() == AMOUNT_OF_POINTS_FOUR) {
             Point p1 = points.get(FIRST_POINT);
             Point p2 = points.get(SECOND_POINT);
             Point p3 = points.get(THIRD_POINT);
@@ -40,7 +40,7 @@ public class Square extends Figure {
 
     @Override
     public void perimeterCalculation() {
-        double perimeter = side1 * AMOUNT_OF_POINTS_SQUARE;
+        double perimeter = side1 * AMOUNT_OF_POINTS_FOUR;
         printPerimeter(perimeter);
     }
 

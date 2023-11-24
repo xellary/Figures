@@ -4,6 +4,8 @@ import ru.mai.figure.point.Point;
 
 import java.util.ArrayList;
 
+import static ru.mai.figure.consts.Consts.*;
+
 public class Polygon extends Figure {
     private final ArrayList<Point> points;
     private int n;
@@ -13,7 +15,7 @@ public class Polygon extends Figure {
 
     @Override
     public boolean figureValidation() {
-        if (points.size() < 3) {
+        if (points.size() < AMOUNT_OF_POINTS_THREE) {
             return false;
         }
         Point first = points.get(0);
@@ -45,7 +47,6 @@ public class Polygon extends Figure {
         }
         area = Math.abs(area) / 2.0;
         printArea(area);
-
     }
 
     @Override
