@@ -16,11 +16,11 @@ public class Figure {
         System.out.println("The figure has no perimeter");
     }
 
-    protected double lengthCalculation(Point p1, Point p2) {
+    protected int lengthCalculation(Point p1, Point p2) {
         int x = p2.x - p1.x;
         int y = p2.y - p1.y;
         int z = p2.z - p1.z;
-        return Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2) + Math.pow(z, 2));
+        return (int) Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2) + Math.pow(z, 2));
     }
 
     protected boolean angleIsEqual(Point p1, Point p2, Point p3) {

@@ -25,8 +25,8 @@ public class Square extends Figure {
             Point p4 = points.get(FOURTH_POINT);
             side1 = lengthCalculation(p1, p2);
             side2 = lengthCalculation(p2, p3);
-            side3 = lengthCalculation(p1, p3);
-            side4 = lengthCalculation(p3, p4);
+            side3 = lengthCalculation(p3, p4);
+            side4 = lengthCalculation(p1, p4);
             return sidesAreEqual() && AllAnglesAreEqual(p1, p2, p3, p4);
         }
         return false;
