@@ -1,10 +1,10 @@
-package ru.mai.figure.shapes;
+package figures.shapes;
 
-import ru.mai.figure.point.Point;
+import figures.point.Point;
 
 import java.util.ArrayList;
 
-import static ru.mai.figure.consts.Consts.*;
+import static figures.consts.Consts.*;
 
 public class Polygon extends Figure {
     private final ArrayList<Point> points;

@@ -1,4 +1,4 @@
-package ru.mai.figure.point;
+package figures.point;
 
 public class Point {
     public int x;

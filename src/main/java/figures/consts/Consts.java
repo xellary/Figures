@@ -1,4 +1,4 @@
-package ru.mai.figure.consts;
+package figures.consts;
 
 public interface Consts {
     int AMOUNT_OF_POINTS_TWO = 2;

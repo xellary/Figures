@@ -1,4 +1,4 @@
-package ru.mai.figure.enums;
+package figures.enums;
 
 public enum TypeOfFigure {
     FIGURE,

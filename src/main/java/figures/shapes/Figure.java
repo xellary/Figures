@@ -1,6 +1,6 @@
-package ru.mai.figure.shapes;
+package figures.shapes;
 
-import ru.mai.figure.point.Point;
+import figures.point.Point;
 
 public class Figure {
     public boolean figureValidation() {

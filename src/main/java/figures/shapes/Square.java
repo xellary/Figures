@@ -1,9 +1,9 @@
-package ru.mai.figure.shapes;
-import ru.mai.figure.point.Point;
+package figures.shapes;
+import figures.point.Point;
 
 import java.util.ArrayList;
 
-import static ru.mai.figure.consts.Consts.*;
+import static figures.consts.Consts.*;
 
 public class Square extends Figure {
     private final ArrayList<Point> points;

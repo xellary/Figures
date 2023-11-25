@@ -1,12 +1,12 @@
-package ru.mai.figure;
+package figures;
 
-import ru.mai.figure.enums.TypeOfFigure;
-import ru.mai.figure.point.Point;
-import ru.mai.figure.shapes.*;
+import figures.enums.TypeOfFigure;
+import figures.point.Point;
+import figures.shapes.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import static ru.mai.figure.consts.Consts.*;
+import static figures.consts.Consts.*;
 
 public class Main {
     public static void main(String[] args) {
