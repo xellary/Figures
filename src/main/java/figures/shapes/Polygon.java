@@ -20,14 +20,14 @@ public class Polygon extends Figure {
         }
         Point first = points.get(0);
         Point last = points.get(points.size() - 1);
-        if (first.x != last.x || first.y != last.y) {
+        if (first.getX() != last.getX() || first.getY() != last.getY()) {
             return false;
         }
 
         n = points.size();
         for (int i = 0; i < n - 2; i++) {
-            double crossProduct = (points.get(i + 1).x - points.get(i).x) * (points.get(i + 2).y - points.get(i + 1).y)
-                    - (points.get(i + 1).y - points.get(i).y) * (points.get(i + 2).x - points.get(i + 1).x);
+            double crossProduct = (points.get(i + 1).getX() - points.get(i).getX()) * (points.get(i + 2).getY() - points.get(i + 1).getY())
+                    - (points.get(i + 1).getY() - points.get(i).getY()) * (points.get(i + 2).getX() - points.get(i + 1).getX());
 
             if (crossProduct == 0) {
                 return false;
@@ -43,7 +43,7 @@ public class Polygon extends Figure {
             Point current = points.get(i);
             Point next = points.get((i + 1) % n);
 
-            area += current.x * next.y - current.y * next.x;
+            area += current.getX() * next.getY() - current.getY() * next.getX();
         }
         area = Math.abs(area) / 2.0;
         printArea(area);

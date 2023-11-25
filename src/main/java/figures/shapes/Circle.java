@@ -19,7 +19,7 @@ public class Circle extends Figure {
         if (points.size() == AMOUNT_OF_POINTS_TWO) {
             p1 = points.get(FIRST_POINT);
             p2 = points.get(SECOND_POINT);
-            return !(p1.x == p2.x && p1.y == p2.y && p1.z == p2.z);
+            return !(p1.getX() == p2.getX() && p1.getY() == p2.getY() && p1.getZ() == p2.getZ());
         }
         return false;
     }

@@ -29,24 +29,24 @@ public class Cylinder extends Figure {
             return false;
         }
 
-        double radiusSquared = Math.pow(pointOnBaseCircle.x - baseCenter.x, 2)
-                + Math.pow(pointOnBaseCircle.y - baseCenter.y, 2)
-                + Math.pow(pointOnBaseCircle.z - baseCenter.z, 2);
+        double radiusSquared = Math.pow(pointOnBaseCircle.getX() - baseCenter.getX(), 2)
+                + Math.pow(pointOnBaseCircle.getY() - baseCenter.getY(), 2)
+                + Math.pow(pointOnBaseCircle.getZ() - baseCenter.getZ(), 2);
         if (radiusSquared <= 0) {
             return false;
         }
-        double height = Math.abs(topCenter.z - baseCenter.z);
+        double height = Math.abs(topCenter.getZ() - baseCenter.getZ());
         return height > 0;
     }
     @Override
     public void areaCalculation() {
-        double radius = Math.sqrt(Math.pow(pointOnBaseCircle.x - baseCenter.x, 2)
-                + Math.pow(pointOnBaseCircle.y - baseCenter.y, 2)
-                + Math.pow(pointOnBaseCircle.z - baseCenter.z, 2));
+        double radius = Math.sqrt(Math.pow(pointOnBaseCircle.getX() - baseCenter.getX(), 2)
+                + Math.pow(pointOnBaseCircle.getY() - baseCenter.getY(), 2)
+                + Math.pow(pointOnBaseCircle.getZ() - baseCenter.getZ(), 2));
 
-        double height = Math.sqrt(Math.pow(topCenter.x - baseCenter.x, 2)
-                + Math.pow(topCenter.y - baseCenter.y, 2)
-                + Math.pow(topCenter.z - baseCenter.z, 2));
+        double height = Math.sqrt(Math.pow(topCenter.getX() - baseCenter.getX(), 2)
+                + Math.pow(topCenter.getY() - baseCenter.getY(), 2)
+                + Math.pow(topCenter.getZ() - baseCenter.getZ(), 2));
 
         double surfaceArea = 2 * Math.PI * radius * (radius + height);
 

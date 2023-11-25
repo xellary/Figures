@@ -24,43 +24,45 @@ public class TruncatedSphere extends Figure {
         pointOnSurface = points.get(1);
         pointOnCuttingCircle = points.get(2);
 
-        if (center.x == pointOnSurface.x && center.y == pointOnSurface.y && center.z == pointOnSurface.z) {
+        if (center.getX() == pointOnSurface.getX()
+                && center.getY() == pointOnSurface.getY()
+                && center.getZ() == pointOnSurface.getZ()) {
             return false;
         }
         double[] vector1 = {
-                pointOnSurface.x - center.x,
-                pointOnSurface.y - center.y,
-                pointOnSurface.z - center.z};
+                pointOnSurface.getX() - center.getX(),
+                pointOnSurface.getY() - center.getY(),
+                pointOnSurface.getZ() - center.getZ()};
         double[] vector2 = {
-                pointOnCuttingCircle.x - center.x,
-                pointOnCuttingCircle.y - center.y,
-                pointOnCuttingCircle.z - center.z};
+                pointOnCuttingCircle.getX() - center.getX(),
+                pointOnCuttingCircle.getY() - center.getY(),
+                pointOnCuttingCircle.getZ() - center.getZ()};
         double dotProduct = vector1[0] * vector2[0] + vector1[1] * vector2[1] + vector1[2] * vector2[2];
         if (dotProduct != 0) {
             return false;
         }
 
-        double radiusSquared = Math.pow(pointOnSurface.x - center.x, 2)
-                + Math.pow(pointOnSurface.y - center.y, 2)
-                + Math.pow(pointOnSurface.z - center.z, 2);
+        double radiusSquared = Math.pow(pointOnSurface.getX() - center.getX(), 2)
+                + Math.pow(pointOnSurface.getY() - center.getY(), 2)
+                + Math.pow(pointOnSurface.getZ() - center.getZ(), 2);
         if (radiusSquared <= 0) {
             return false;
         }
-        double heightSquared = Math.pow(pointOnCuttingCircle.x - center.x, 2)
-                + Math.pow(pointOnCuttingCircle.y - center.y, 2)
-                + Math.pow(pointOnCuttingCircle.z - center.z, 2);
+        double heightSquared = Math.pow(pointOnCuttingCircle.getX() - center.getX(), 2)
+                + Math.pow(pointOnCuttingCircle.getY() - center.getY(), 2)
+                + Math.pow(pointOnCuttingCircle.getZ() - center.getZ(), 2);
         return !(heightSquared <= 0);
     }
 
     @Override
     public void areaCalculation() {
-        double radius = Math.sqrt(Math.pow(pointOnSurface.x - center.x, 2)
-                + Math.pow(pointOnSurface.y - center.y, 2)
-                + Math.pow(pointOnSurface.z - center.z, 2));
+        double radius = Math.sqrt(Math.pow(pointOnSurface.getX() - center.getX(), 2)
+                + Math.pow(pointOnSurface.getY() - center.getY(), 2)
+                + Math.pow(pointOnSurface.getZ() - center.getZ(), 2));
 
-        double height = Math.sqrt(Math.pow(pointOnCuttingCircle.x - center.x, 2)
-                + Math.pow(pointOnCuttingCircle.y - center.y, 2)
-                + Math.pow(pointOnCuttingCircle.z - center.z, 2));
+        double height = Math.sqrt(Math.pow(pointOnCuttingCircle.getX() - center.getX(), 2)
+                + Math.pow(pointOnCuttingCircle.getY() - center.getY(), 2)
+                + Math.pow(pointOnCuttingCircle.getZ() - center.getZ(), 2));
 
         double surfaceArea = 2 * Math.PI * radius * (radius + height);
 

@@ -23,7 +23,7 @@ public class Parallelogram extends Figure {
         }
         for (int i = 0; i < points.size(); i++) {
             for (int j = i + 1; j < points.size(); j++) {
-                if (points.get(i).x == points.get(j).x && points.get(i).y == points.get(j).y) {
+                if (points.get(i).getX() == points.get(j).getX() && points.get(i).getY() == points.get(j).getY()) {
                     return false;
                 }
             }
@@ -32,10 +32,10 @@ public class Parallelogram extends Figure {
         p2 = points.get(1);
         p3 = points.get(2);
         p4 = points.get(3);
-        int vector1X = p2.x - p1.x;
-        int vector1Y = p2.y - p1.y;
-        int vector2X = p4.x - p3.x;
-        int vector2Y = p4.y - p3.y;
+        int vector1X = p2.getX() - p1.getX();
+        int vector1Y = p2.getY() - p1.getY();
+        int vector2X = p4.getX() - p3.getX();
+        int vector2Y = p4.getY() - p3.getY();
 
         return vector1X * vector2Y - vector1Y * vector2X == 0;
     }
@@ -46,10 +46,10 @@ public class Parallelogram extends Figure {
         p2 = points.get(1);
         p3 = points.get(2);
 
-        double vectorABx = p2.x - p1.x;
-        double vectorABy = p2.y - p1.y;
-        double vectorACx = p3.x - p1.x;
-        double vectorACy = p3.y - p1.y;
+        double vectorABx = p2.getX() - p1.getX();
+        double vectorABy = p2.getY() - p1.getY();
+        double vectorACx = p3.getX() - p1.getX();
+        double vectorACy = p3.getY() - p1.getY();
 
         double crossProduct = vectorABx * vectorACy - vectorABy * vectorACx;
         double area = Math.abs(crossProduct);

@@ -17,17 +17,17 @@ public class Figure {
     }
 
     protected int lengthCalculation(Point p1, Point p2) {
-        int x = p2.x - p1.x;
-        int y = p2.y - p1.y;
-        int z = p2.z - p1.z;
+        int x = p2.getX() - p1.getX();
+        int y = p2.getY() - p1.getY();
+        int z = p2.getZ() - p1.getZ();
         return (int) Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2) + Math.pow(z, 2));
     }
 
     protected boolean angleIsEqual(Point p1, Point p2, Point p3) {
-        int vector1X = p2.x - p1.x;
-        int vector1Y = p2.y - p1.y;
-        int vector2X = p3.x - p2.x;
-        int vector2Y = p3.y - p2.y;
+        int vector1X = p2.getX() - p1.getX();
+        int vector1Y = p2.getY() - p1.getY();
+        int vector2X = p3.getX() - p2.getX();
+        int vector2Y = p3.getY() - p2.getY();
 
         return vector1X * vector2X + vector1Y * vector2Y == 0;
 

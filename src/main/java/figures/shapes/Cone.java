@@ -32,13 +32,13 @@ public class Cone extends Figure {
 
     @Override
     public void areaCalculation() {
-        double radius = Math.sqrt(Math.pow(pointOnCircle.x - center.x, 2)
-                + Math.pow(pointOnCircle.y - center.y, 2)
-                + Math.pow(pointOnCircle.z - center.z, 2));
+        double radius = Math.sqrt(Math.pow(pointOnCircle.getX() - center.getX(), 2)
+                + Math.pow(pointOnCircle.getY() - center.getY(), 2)
+                + Math.pow(pointOnCircle.getZ() - center.getZ(), 2));
 
-        double height = Math.sqrt(Math.pow(apex.x - center.x, 2)
-                + Math.pow(apex.y - center.y, 2)
-                + Math.pow(apex.z - center.z, 2));
+        double height = Math.sqrt(Math.pow(apex.getX() - center.getX(), 2)
+                + Math.pow(apex.getY() - center.getY(), 2)
+                + Math.pow(apex.getZ() - center.getZ(), 2));
 
         double surfaceArea = Math.PI * radius * (radius + Math.sqrt(Math.pow(height, 2) + Math.pow(radius, 2)));
         printArea(surfaceArea);
