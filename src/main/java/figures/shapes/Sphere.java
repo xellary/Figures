@@ -8,8 +8,11 @@ import static figures.consts.Consts.*;
 
 public class Sphere extends Figure {
     private final ArrayList<Point> points;
+
     private Point center;
+
     private Point pointOnSurface;
+
     public Sphere(ArrayList<Point> points) {
         this.points = points;
     }

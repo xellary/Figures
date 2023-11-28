@@ -8,9 +8,13 @@ import static figures.consts.Consts.*;
 
 public class TruncatedSphere extends Figure {
     private final ArrayList<Point> points;
+
     private Point center;
+
     private Point pointOnSurface;
+
     private Point pointOnCuttingCircle;
+
     public TruncatedSphere(ArrayList<Point> points) {
         this.points = points;
     }
@@ -42,30 +46,19 @@ public class TruncatedSphere extends Figure {
             return false;
         }
 
-        double radiusSquared = Math.pow(pointOnSurface.getX() - center.getX(), 2)
-                + Math.pow(pointOnSurface.getY() - center.getY(), 2)
-                + Math.pow(pointOnSurface.getZ() - center.getZ(), 2);
+        double radiusSquared = calculateLength(pointOnSurface, center);
         if (radiusSquared <= 0) {
             return false;
         }
-        double heightSquared = Math.pow(pointOnCuttingCircle.getX() - center.getX(), 2)
-                + Math.pow(pointOnCuttingCircle.getY() - center.getY(), 2)
-                + Math.pow(pointOnCuttingCircle.getZ() - center.getZ(), 2);
+        double heightSquared = calculateLength(pointOnCuttingCircle, center);
         return !(heightSquared <= 0);
     }
 
     @Override
     public void areaCalculation() {
-        double radius = Math.sqrt(Math.pow(pointOnSurface.getX() - center.getX(), 2)
-                + Math.pow(pointOnSurface.getY() - center.getY(), 2)
-                + Math.pow(pointOnSurface.getZ() - center.getZ(), 2));
-
-        double height = Math.sqrt(Math.pow(pointOnCuttingCircle.getX() - center.getX(), 2)
-                + Math.pow(pointOnCuttingCircle.getY() - center.getY(), 2)
-                + Math.pow(pointOnCuttingCircle.getZ() - center.getZ(), 2));
-
+        double radius = calculateLength(pointOnSurface, center);
+        double height = calculateLength(pointOnCuttingCircle, center);
         double surfaceArea = 2 * Math.PI * radius * (radius + height);
-
-       printArea(surfaceArea);
+        printArea(surfaceArea);
     }
 }

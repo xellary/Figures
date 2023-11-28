@@ -8,8 +8,11 @@ import static figures.consts.Consts.*;
 
 public class Circle extends Figure {
     private final ArrayList<Point> points;
+
     private Point p1;
+
     private Point p2;
+
     public Circle(ArrayList<Point> points) {
         this.points = points;
     }
@@ -26,14 +29,14 @@ public class Circle extends Figure {
 
     @Override
     public void areaCalculation() {
-        double radius = lengthCalculation(p1, p2);
+        double radius = calculateLength(p1, p2);
         double area = Math.PI * Math.pow(radius, 2);
         printArea(area);
     }
 
     @Override
     public void perimeterCalculation() {
-        double radius = lengthCalculation(p1, p2);
+        double radius = calculateLength(p1, p2);
         double perimeter = Math.PI * 2 * radius;
         printPerimeter(perimeter);
     }

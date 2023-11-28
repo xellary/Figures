@@ -8,10 +8,15 @@ import static figures.consts.Consts.*;
 
 public class Parallelogram extends Figure {
     private final ArrayList<Point> points;
+
     private Point p1;
+
     private Point p2;
+
     private Point p3;
+
     private Point p4;
+
     public Parallelogram(ArrayList<Point> points) {
         this.points = points;
     }
@@ -61,9 +66,9 @@ public class Parallelogram extends Figure {
     public void perimeterCalculation() {
         double perimeter = 0;
         for (int i = 0; i < points.size() - 1; i++) {
-            perimeter += lengthCalculation(points.get(i), points.get(i + 1));
+            perimeter += calculateLength(points.get(i), points.get(i + 1));
         }
-        perimeter += lengthCalculation(points.get(points.size() - 1), points.get(0));
+        perimeter += calculateLength(points.get(points.size() - 1), points.get(0));
         printPerimeter(perimeter);
     }
 }

@@ -2,7 +2,9 @@ package figures.point;
 
 public class Point {
     private int x;
+
     private int y;
+
     private int z;
 
     public Point(int x, int y) {

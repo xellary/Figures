@@ -8,9 +8,13 @@ import static figures.consts.Consts.*;
 
 public class Cone extends Figure {
     private final ArrayList<Point> points;
+
     private Point center;
+
     private Point pointOnCircle;
+
     private Point apex;
+
     public Cone(ArrayList<Point> points) {
         this.points = points;
     }
@@ -24,8 +28,8 @@ public class Cone extends Figure {
         pointOnCircle = points.get(1);
         apex = points.get(2);
 
-        double radius = lengthCalculation(center, pointOnCircle);
-        double height = lengthCalculation(center, apex);
+        double radius = calculateLength(center, pointOnCircle);
+        double height = calculateLength(center, apex);
 
         return radius > 0 && height > 0;
     }

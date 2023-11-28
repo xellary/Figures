@@ -8,7 +8,9 @@ import static figures.consts.Consts.*;
 
 public class Polygon extends Figure {
     private final ArrayList<Point> points;
+
     private int n;
+
     public Polygon(ArrayList<Point> points) {
         this.points = points;
     }
@@ -53,9 +55,9 @@ public class Polygon extends Figure {
     public void perimeterCalculation() {
         double perimeter = 0;
         for (int i = 0; i < n - 1; i++) {
-            perimeter += lengthCalculation(points.get(i), points.get(i + 1));
+            perimeter += calculateLength(points.get(i), points.get(i + 1));
         }
-        perimeter += lengthCalculation(points.get(n - 1), points.get(0));
+        perimeter += calculateLength(points.get(n - 1), points.get(0));
         printPerimeter(perimeter);
     }
 }

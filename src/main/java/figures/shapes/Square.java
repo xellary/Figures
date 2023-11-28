@@ -7,9 +7,13 @@ import static figures.consts.Consts.*;
 
 public class Square extends Figure {
     private final ArrayList<Point> points;
+
     private double side1;
+
     private double side2;
+
     private double side3;
+
     private double side4;
 
     public Square(ArrayList<Point> points) {
@@ -23,11 +27,11 @@ public class Square extends Figure {
             Point p2 = points.get(SECOND_POINT);
             Point p3 = points.get(THIRD_POINT);
             Point p4 = points.get(FOURTH_POINT);
-            side1 = lengthCalculation(p1, p2);
-            side2 = lengthCalculation(p2, p3);
-            side3 = lengthCalculation(p3, p4);
-            side4 = lengthCalculation(p1, p4);
-            return sidesAreEqual() && AllAnglesAreEqual(p1, p2, p3, p4);
+            side1 = calculateLength(p1, p2);
+            side2 = calculateLength(p2, p3);
+            side3 = calculateLength(p3, p4);
+            side4 = calculateLength(p1, p4);
+            return sidesAreEqual() && areAllAnglesEqual(p1, p2, p3, p4);
         }
         return false;
     }
