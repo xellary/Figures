@@ -20,10 +20,8 @@ public class ConeTest {
         points.add(new Point(0, 0, 4));
         Cone cone = new Cone(points);
 
-        then(cone.figureValidation()).isEqualTo(true);
-        cone.areaCalculation();
-        cone.perimeterCalculation();
-        System.out.println("Expected: 75,40");
+        then(cone.validateFigure()).isEqualTo(true);
+        then(cone.round(cone.calculateArea())).isEqualTo(75.40);
 
     }
 }

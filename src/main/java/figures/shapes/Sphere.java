@@ -18,7 +18,7 @@ public class Sphere extends Figure {
     }
 
     @Override
-    public boolean figureValidation() {
+    public boolean validateFigure() {
         if (points.size() != AMOUNT_OF_POINTS_TWO) {
             return false;
         }
@@ -31,21 +31,14 @@ public class Sphere extends Figure {
             return false;
         }
 
-        double radiusSquared = Math.pow(pointOnSurface.getX() - center.getX(), 2)
-                + Math.pow(pointOnSurface.getY() - center.getY(), 2)
-                + Math.pow(pointOnSurface.getZ() - center.getZ(), 2);
+        double radiusSquared = calculateLength(pointOnSurface, center);
         return !(radiusSquared <= 0);
 
     }
 
     @Override
-    public void areaCalculation() {
-        double radius = Math.sqrt(Math.pow(pointOnSurface.getX() - center.getX(), 2)
-                + Math.pow(pointOnSurface.getY() - center.getY(), 2)
-                + Math.pow(pointOnSurface.getZ() - center.getZ(), 2));
-
-        double surfaceArea = 4 * Math.PI * Math.pow(radius, 2);
-
-        printArea(surfaceArea);
+    public double calculateArea() {
+        double radius = calculateLength(pointOnSurface, center);
+        return  4 * Math.PI * Math.pow(radius, 2);
     }
 }

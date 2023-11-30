@@ -22,12 +22,9 @@ public class ParallelogramTest {
         points.add(new Point(2, 2));
         Parallelogram parallelogram = new Parallelogram(points);
 
-        then(parallelogram.figureValidation()).isEqualTo(true);
-        parallelogram.areaCalculation();
-        parallelogram.perimeterCalculation();
-        System.out.println("Expected: 8,00");
-        System.out.println("Expected: 13,66");
-
+        then(parallelogram.validateFigure()).isEqualTo(true);
+        then(parallelogram.round(parallelogram.calculateArea())).isEqualTo(8.00);
+        then(parallelogram.round(parallelogram.calculatePerimeter())).isEqualTo(13.66);
     }
 }
 

@@ -13,18 +13,20 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         String command = inputCommand(scanner);
-        if (!command.equals("END")) {
+        if (command.equals("END")) {
+            System.out.println("Input is finished");
+        } else {
             ArrayList<Point> points = inputCoordinates(scanner);
             Figure figure = createFigure(command, points);
 
-            if (figure.figureValidation()) {
-                figure.areaCalculation();
-                figure.perimeterCalculation();
+            if (figure.validateFigure()) {
+                figure.printArea(figure.calculateArea());
+                figure.printPerimeter(figure.calculatePerimeter());
             }
         }
     }
 
-    public static boolean validFigure(String command) {
+    public static boolean isValidFigure(String command) {
         for (TypeOfFigure type : TypeOfFigure.values()) {
             if (type.name().equals(command)) {
                 return true;
@@ -34,11 +36,12 @@ public class Main {
     }
 
     public static String inputCommand(Scanner scanner) {
+        System.out.println("Enter figure type: ");
         String inputLine = scanner.nextLine();
         if (inputLine.equals("END")) {
             return inputLine;
         }
-        while (!validFigure(inputLine)) {
+        while (!isValidFigure(inputLine)) {
             System.out.println("Please, retype");
             inputLine = scanner.nextLine();
         }
@@ -64,6 +67,7 @@ public class Main {
 
     public static ArrayList<Point> inputCoordinates(Scanner scanner) {
         ArrayList<Point> points = new ArrayList<>();
+        System.out.println("Enter points for figure: ");
         while (true) {
             try {
                 String[] coordinates = scanner.nextLine().split(" ");

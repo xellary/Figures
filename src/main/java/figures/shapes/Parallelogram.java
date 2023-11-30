@@ -9,20 +9,20 @@ import static figures.consts.Consts.*;
 public class Parallelogram extends Figure {
     private final ArrayList<Point> points;
 
-    private Point p1;
+    private Point pointA;
 
-    private Point p2;
+    private Point pointB;
 
-    private Point p3;
+    private Point pointC;
 
-    private Point p4;
+    private Point pointD;
 
     public Parallelogram(ArrayList<Point> points) {
         this.points = points;
     }
 
     @Override
-    public boolean figureValidation() {
+    public boolean validateFigure() {
         if (points.size() != AMOUNT_OF_POINTS_FOUR) {
             return false;
         }
@@ -33,42 +33,40 @@ public class Parallelogram extends Figure {
                 }
             }
         }
-        p1 = points.get(0);
-        p2 = points.get(1);
-        p3 = points.get(2);
-        p4 = points.get(3);
-        int vector1X = p2.getX() - p1.getX();
-        int vector1Y = p2.getY() - p1.getY();
-        int vector2X = p4.getX() - p3.getX();
-        int vector2Y = p4.getY() - p3.getY();
+        pointA = points.get(0);
+        pointB = points.get(1);
+        pointC = points.get(2);
+        pointD = points.get(3);
+        int vector1X = pointB.getX() - pointA.getX();
+        int vector1Y = pointB.getY() - pointA.getY();
+        int vector2X = pointD.getX() - pointC.getX();
+        int vector2Y = pointD.getY() - pointC.getY();
 
         return vector1X * vector2Y - vector1Y * vector2X == 0;
     }
 
     @Override
-    public void areaCalculation() {
-        p1 = points.get(0);
-        p2 = points.get(1);
-        p3 = points.get(2);
+    public double calculateArea() {
+        pointA = points.get(0);
+        pointB = points.get(1);
+        pointC = points.get(2);
 
-        double vectorABx = p2.getX() - p1.getX();
-        double vectorABy = p2.getY() - p1.getY();
-        double vectorACx = p3.getX() - p1.getX();
-        double vectorACy = p3.getY() - p1.getY();
+        double vectorABx = pointB.getX() - pointA.getX();
+        double vectorABy = pointB.getY() - pointA.getY();
+        double vectorACx = pointC.getX() - pointA.getX();
+        double vectorACy = pointC.getY() - pointA.getY();
 
         double crossProduct = vectorABx * vectorACy - vectorABy * vectorACx;
-        double area = Math.abs(crossProduct);
-        printArea(area);
-
+        return Math.abs(crossProduct);
     }
 
     @Override
-    public void perimeterCalculation() {
+    public double calculatePerimeter() {
         double perimeter = 0;
         for (int i = 0; i < points.size() - 1; i++) {
             perimeter += calculateLength(points.get(i), points.get(i + 1));
         }
         perimeter += calculateLength(points.get(points.size() - 1), points.get(0));
-        printPerimeter(perimeter);
+        return perimeter;
     }
 }

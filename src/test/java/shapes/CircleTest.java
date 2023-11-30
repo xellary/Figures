@@ -17,14 +17,11 @@ public class CircleTest {
 
         ArrayList<Point> points = new ArrayList<>();
         points.add(new Point(0, 0));
-        points.add(new Point(1, 1));
+        points.add(new Point(2, 0));
         Circle circle = new Circle(points);
 
-        then(circle.figureValidation()).isEqualTo(true);
-        circle.areaCalculation();
-        circle.perimeterCalculation();
-        System.out.println("Expected: 3,14");
-        System.out.println("Expected: 6,28");
-
+        then(circle.validateFigure()).isEqualTo(true);
+        then(circle.round(circle.calculateArea())).isEqualTo(12.57);
+        then(circle.round(circle.calculatePerimeter())).isEqualTo(12.57);
     }
 }

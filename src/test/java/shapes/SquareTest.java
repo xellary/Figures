@@ -21,11 +21,9 @@ public class SquareTest {
         points.add(new Point(0, 2));
         Square square = new Square(points);
 
-        then(square.figureValidation()).isEqualTo(true);
-        square.areaCalculation();
-        square.perimeterCalculation();
-        System.out.println("Expected: 4,00");
-        System.out.println("Expected: 8,00");
+        then(square.validateFigure()).isEqualTo(true);
+        then(square.round(square.calculateArea())).isEqualTo(4);
+        then(square.round(square.calculatePerimeter())).isEqualTo(8);
 
     }
 }

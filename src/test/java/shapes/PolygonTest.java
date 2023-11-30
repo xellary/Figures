@@ -15,16 +15,15 @@ public class PolygonTest {
     public void PolygonAreaAndPerimeterMethods() {
 
         ArrayList<Point> points = new ArrayList<>();
-        points.add(new Point(0, 0));
-        points.add(new Point(4, 0));
-        points.add(new Point(6, 2));
-        points.add(new Point(2, 2));
+        points.add(new Point(0, 3));
+        points.add(new Point(1, 7));
+        points.add(new Point(5, 8));
+        points.add(new Point(6, 6));
+        points.add(new Point(3, 0));
         Polygon polygon = new Polygon(points);
 
-        then(polygon.figureValidation()).isEqualTo(true);
-        polygon.areaCalculation();
-        polygon.perimeterCalculation();
-        System.out.println("Expected: ");
-        System.out.println("Expected: ");
+        then(polygon.validateFigure()).isEqualTo(true);
+        then(polygon.round(polygon.calculateArea())).isEqualTo(28.5);
+        then(polygon.round(polygon.calculatePerimeter())).isEqualTo(21.43);
     }
 }

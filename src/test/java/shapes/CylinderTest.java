@@ -20,11 +20,8 @@ public class CylinderTest {
         points.add(new Point(3, 0));
         Cylinder cylinder = new Cylinder(points);
 
-        then(cylinder.figureValidation()).isEqualTo(true);
-        cylinder.areaCalculation();
-        cylinder.perimeterCalculation();
-        System.out.println("Expected: 131,90");
-
+        then(cylinder.validateFigure()).isEqualTo(true);
+        then(cylinder.round(cylinder.calculateArea())).isEqualTo(131.95);
     }
 }
 

@@ -19,10 +19,7 @@ public class SphereTest {
         points.add(new Point(0, 0, 5));
         Sphere sphere = new Sphere(points);
 
-        then(sphere.figureValidation()).isEqualTo(true);
-        sphere.areaCalculation();
-        sphere.perimeterCalculation();
-        System.out.println("Expected: 314,16");
-
+        then(sphere.validateFigure()).isEqualTo(true);
+        then(sphere.round(sphere.calculateArea())).isEqualTo(314.16);
     }
 }

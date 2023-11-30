@@ -22,11 +22,8 @@ public class RectangleTest {
         points.add(new Point(0, 2));
         Rectangle rectangle = new Rectangle(points);
 
-        then(rectangle.figureValidation()).isEqualTo(true);
-        rectangle.areaCalculation();
-        rectangle.perimeterCalculation();
-        System.out.println("Expected: 6,00");
-        System.out.println("Expected: 10,00");
-
+        then(rectangle.validateFigure()).isEqualTo(true);
+        then(rectangle.round(rectangle.calculateArea())).isEqualTo(6);
+        then(rectangle.round(rectangle.calculatePerimeter())).isEqualTo(10);
     }
 }

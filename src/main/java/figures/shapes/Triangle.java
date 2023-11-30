@@ -8,41 +8,38 @@ import static figures.consts.Consts.*;
 
 public class Triangle extends Figure {
     private final ArrayList<Point> points;
-    private double side1;
+    private double sideAB;
 
-    private double side2;
+    private double sideBC;
 
-    private  double side3;
+    private  double sideAC;
 
     public Triangle(ArrayList<Point> points) {
         this.points = points;
     }
 
     @Override
-    public boolean figureValidation() {
+    public boolean validateFigure() {
         if (points.size() == AMOUNT_OF_POINTS_THREE) {
-            Point p1 = points.get(FIRST_POINT);
-            Point p2 = points.get(SECOND_POINT);
-            Point p3 = points.get(THIRD_POINT);
-            side1 = calculateLength(p1, p2);
-            side2 = calculateLength(p2, p3);
-            side3 = calculateLength(p1, p3);
-            return side1 + side2 > side3 || side2 + side3 > side1 || side1 + side3 > side2;
+            Point pointA = points.get(FIRST_POINT);
+            Point pointB = points.get(SECOND_POINT);
+            Point pointC = points.get(THIRD_POINT);
+            sideAB = calculateLength(pointA, pointB);
+            sideBC = calculateLength(pointB, pointC);
+            sideAC = calculateLength(pointA, pointC);
+            return sideAB + sideBC > sideAC || sideBC + sideAC > sideAB || sideAB + sideAC > sideBC;
         }
         return false;
     }
 
     @Override
-    public void areaCalculation() {
-        double halfPer = (side1 + side2 + side3) / 2;
-        double area = Math.sqrt(halfPer * (halfPer - side1) * (halfPer - side2) * (halfPer - side3));
-        printArea(area);
+    public double calculateArea() {
+        double halfPer = (sideAB + sideBC + sideAC) / 2;
+        return Math.sqrt(halfPer * (halfPer - sideAB) * (halfPer - sideBC) * (halfPer - sideAC));
     }
 
     @Override
-    public void perimeterCalculation() {
-        double perimeter = side1 + side2 + side3;
-        printPerimeter(perimeter);
+    public double calculatePerimeter() {
+        return sideAB + sideBC + sideAC;
     }
-
 }

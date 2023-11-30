@@ -17,13 +17,10 @@ public class TruncatedSphereTest {
         ArrayList<Point> points = new ArrayList<>();
         points.add(new Point(0, 0));
         points.add(new Point(0, 5));
-        points.add(new Point(0, 3, 4));
+        points.add(new Point(0, 0, 4));
         TruncatedSphere truncatedSphere = new TruncatedSphere(points);
 
-        then(truncatedSphere.figureValidation()).isEqualTo(true);
-        truncatedSphere.areaCalculation();
-        truncatedSphere.perimeterCalculation();
-        System.out.println("Expected: ");
-
+        then(truncatedSphere.validateFigure()).isEqualTo(true);
+        then(truncatedSphere.round(truncatedSphere.calculateArea())).isEqualTo(59.69);
     }
 }

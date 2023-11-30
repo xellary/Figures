@@ -20,7 +20,7 @@ public class Cylinder extends Figure {
     }
 
     @Override
-    public boolean figureValidation() {
+    public boolean validateFigure() {
         if (points.size() != AMOUNT_OF_POINTS_THREE) {
             return false;
         }
@@ -40,10 +40,9 @@ public class Cylinder extends Figure {
         return height > 0;
     }
     @Override
-    public void areaCalculation() {
+    public double calculateArea() {
         double radius = calculateLength(pointOnBaseCircle, baseCenter);
         double height = calculateLength(topCenter, baseCenter);
-        double surfaceArea = 2 * Math.PI * radius * (radius + height);
-        printArea(surfaceArea);
+        return  2 * Math.PI * radius * (radius + height);
     }
 }

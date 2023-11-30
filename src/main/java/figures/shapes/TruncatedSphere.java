@@ -20,7 +20,7 @@ public class TruncatedSphere extends Figure {
     }
 
     @Override
-    public boolean figureValidation() {
+    public boolean validateFigure() {
         if (points.size() != AMOUNT_OF_POINTS_THREE) {
             return false;
         }
@@ -55,10 +55,11 @@ public class TruncatedSphere extends Figure {
     }
 
     @Override
-    public void areaCalculation() {
+    public double calculateArea() {
         double radius = calculateLength(pointOnSurface, center);
-        double height = calculateLength(pointOnCuttingCircle, center);
-        double surfaceArea = 2 * Math.PI * radius * (radius + height);
-        printArea(surfaceArea);
+        double height = radius - pointOnCuttingCircle.getZ();
+        double sideSurface = 2 * radius * height * Math.PI;
+        double baseSurface = Math.PI * height * (2 * radius - height);
+        return sideSurface + baseSurface;
     }
 }

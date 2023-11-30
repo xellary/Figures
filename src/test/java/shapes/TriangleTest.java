@@ -20,11 +20,9 @@ public class TriangleTest {
         points.add(new Point(2, 4));
         Triangle triangle = new Triangle(points);
 
-        then(triangle.figureValidation()).isEqualTo(true);
-        triangle.areaCalculation();
-        triangle.perimeterCalculation();
-        System.out.println("Expected: 8,00");
-        System.out.println("Expected: 12,94");
+        then(triangle.validateFigure()).isEqualTo(true);
+        then(triangle.round(triangle.calculateArea())).isEqualTo(8);
+        then(triangle.round(triangle.calculatePerimeter())).isEqualTo(12.94);
 
     }
 }
