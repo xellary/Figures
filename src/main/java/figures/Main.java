@@ -22,6 +22,8 @@ public class Main {
             if (figure.validateFigure()) {
                 figure.printArea(figure.calculateArea());
                 figure.printPerimeter(figure.calculatePerimeter());
+            } else {
+                System.out.println("Invalid figure");
             }
         }
     }
