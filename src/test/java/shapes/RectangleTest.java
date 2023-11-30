@@ -25,5 +25,12 @@ public class RectangleTest {
         then(rectangle.validateFigure()).isEqualTo(true);
         then(rectangle.round(rectangle.calculateArea())).isEqualTo(6);
         then(rectangle.round(rectangle.calculatePerimeter())).isEqualTo(10);
+
+        points.clear();
+        points.add(new Point(1, 0));
+        points.add(new Point(5, 0));
+        points.add(new Point(5, 3));
+        points.add(new Point(1, 2));
+        then(rectangle.validateFigure()).isEqualTo(false);
     }
 }

@@ -23,5 +23,10 @@ public class CircleTest {
         then(circle.validateFigure()).isEqualTo(true);
         then(circle.round(circle.calculateArea())).isEqualTo(12.57);
         then(circle.round(circle.calculatePerimeter())).isEqualTo(12.57);
+
+        points.clear();
+        points.add(new Point(1, 1));
+        points.add(new Point(1, 1));
+        then(circle.validateFigure()).isEqualTo(false);
     }
 }

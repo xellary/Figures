@@ -25,5 +25,11 @@ public class SquareTest {
         then(square.round(square.calculateArea())).isEqualTo(4);
         then(square.round(square.calculatePerimeter())).isEqualTo(8);
 
+        points.clear();
+        points.add(new Point(0, 0));
+        points.add(new Point(4, 0));
+        points.add(new Point(4, 4));
+        points.add(new Point(0, 3));
+        then(square.validateFigure()).isEqualTo(false);
     }
 }

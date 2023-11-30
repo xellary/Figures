@@ -22,6 +22,12 @@ public class CylinderTest {
 
         then(cylinder.validateFigure()).isEqualTo(true);
         then(cylinder.round(cylinder.calculateArea())).isEqualTo(131.95);
+
+        points.clear();
+        points.add(new Point(1, 1, 1));
+        points.add(new Point(1, 1, 1));
+        points.add(new Point(2, 2, 1));
+        then(cylinder.validateFigure()).isEqualTo(false);
     }
 }
 

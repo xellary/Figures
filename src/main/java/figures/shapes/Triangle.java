@@ -27,7 +27,10 @@ public class Triangle extends Figure {
             sideAB = calculateLength(pointA, pointB);
             sideBC = calculateLength(pointB, pointC);
             sideAC = calculateLength(pointA, pointC);
-            return sideAB + sideBC > sideAC || sideBC + sideAC > sideAB || sideAB + sideAC > sideBC;
+            return ((pointB.getX() - pointA.getX())
+                    * (pointC.getY() - pointA.getY())
+                    - (pointC.getX() - pointA.getX())
+                    * (pointB.getY() - pointA.getY())) != 0;
         }
         return false;
     }

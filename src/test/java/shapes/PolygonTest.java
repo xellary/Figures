@@ -25,5 +25,12 @@ public class PolygonTest {
         then(polygon.validateFigure()).isEqualTo(true);
         then(polygon.round(polygon.calculateArea())).isEqualTo(28.5);
         then(polygon.round(polygon.calculatePerimeter())).isEqualTo(21.43);
+
+        points.clear();
+        points.add(new Point(1, 1));
+        points.add(new Point(2, 3));
+        points.add(new Point(1, 3));
+        points.add(new Point(2, 3));
+        then(polygon.validateFigure()).isEqualTo(false);
     }
 }

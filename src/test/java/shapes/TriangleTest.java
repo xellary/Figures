@@ -24,5 +24,10 @@ public class TriangleTest {
         then(triangle.round(triangle.calculateArea())).isEqualTo(8);
         then(triangle.round(triangle.calculatePerimeter())).isEqualTo(12.94);
 
+        points.clear();
+        points.add(new Point(0, 0));
+        points.add(new Point(5, 0));
+        points.add(new Point(2, 0));
+        then(triangle.validateFigure()).isEqualTo(false);
     }
 }

@@ -21,5 +21,10 @@ public class SphereTest {
 
         then(sphere.validateFigure()).isEqualTo(true);
         then(sphere.round(sphere.calculateArea())).isEqualTo(314.16);
+
+        points.clear();
+        points.add(new Point(1, 1, 5));
+        points.add(new Point(1, 1, 5));
+        then(sphere.validateFigure()).isEqualTo(false);
     }
 }

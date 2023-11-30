@@ -23,6 +23,11 @@ public class ConeTest {
         then(cone.validateFigure()).isEqualTo(true);
         then(cone.round(cone.calculateArea())).isEqualTo(75.40);
 
+        points.clear();
+        points.add(new Point(1, 1, 0));
+        points.add(new Point(0, 3, 0));
+        points.add(new Point(1, 1, 0));
+        then(cone.validateFigure()).isEqualTo(false);
     }
 }
 
