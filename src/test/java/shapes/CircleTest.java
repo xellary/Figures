@@ -11,23 +11,39 @@ import static org.assertj.core.api.BDDAssertions.then;
 
 public class CircleTest {
 
+    ArrayList<Point> points = new ArrayList<>();
+
     @Test
     @DisplayName("Circle area and perimeter methods")
     public void CircleAreaAndPerimeterMethods() {
-
-        ArrayList<Point> points = new ArrayList<>();
-        points.add(new Point(0, 0));
-        points.add(new Point(2, 0));
+        addPointsForValidTest();
         Circle circle = new Circle(points);
 
-        then(circle.validateFigure()).isEqualTo(true);
         then(circle.round(circle.calculateArea())).isEqualTo(12.57);
         then(circle.round(circle.calculatePerimeter())).isEqualTo(12.57);
+    }
 
+    @Test
+    @DisplayName("Circle validation method")
+    public void CircleValidationMethod() {
+        addPointsForValidTest();
+        Circle circle = new Circle(points);
+        then(circle.validateFigure()).isEqualTo(true);
+
+        addPointsForInvalidTest();
+        circle = new Circle(points);
+        then(circle.validateFigure()).isEqualTo(false);
+    }
+
+    private void addPointsForValidTest() {
+        points.clear();
+        points.add(new Point(0, 0));
+        points.add(new Point(2, 0));
+    }
+
+    private void addPointsForInvalidTest() {
         points.clear();
         points.add(new Point(1, 1));
         points.add(new Point(1, 1));
-        circle = new Circle(points);
-        then(circle.validateFigure()).isEqualTo(false);
     }
 }

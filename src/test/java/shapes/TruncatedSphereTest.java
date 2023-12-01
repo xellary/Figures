@@ -10,24 +10,41 @@ import java.util.ArrayList;
 import static org.assertj.core.api.BDDAssertions.then;
 
 public class TruncatedSphereTest {
-    @Test
-    @DisplayName("Truncated Sphere area and perimeter methods")
-    public void TruncatedSphereAreaAndPerimeterMethods() {
 
-        ArrayList<Point> points = new ArrayList<>();
+    ArrayList<Point> points = new ArrayList<>();
+
+    @Test
+    @DisplayName("Truncated Sphere area method")
+    public void TruncatedSphereAreaMethod() {
+        addPointsForValidTest();
+        TruncatedSphere truncatedSphere = new TruncatedSphere(points);
+
+        then(truncatedSphere.round(truncatedSphere.calculateArea())).isEqualTo(59.69);
+    }
+
+    @Test
+    @DisplayName("Truncated Sphere validation method")
+    public void TruncatedSphereValidationMethod() {
+        addPointsForValidTest();
+        TruncatedSphere truncatedSphere = new TruncatedSphere(points);
+        then(truncatedSphere.validateFigure()).isEqualTo(true);
+
+        addPointsForInvalidTest();
+        truncatedSphere = new TruncatedSphere(points);
+        then(truncatedSphere.validateFigure()).isEqualTo(false);
+    }
+
+    private void addPointsForValidTest() {
+        points.clear();
         points.add(new Point(0, 0, 0));
         points.add(new Point(0, 5, 0));
         points.add(new Point(0, 0, 4));
-        TruncatedSphere truncatedSphere = new TruncatedSphere(points);
+    }
 
-        then(truncatedSphere.validateFigure()).isEqualTo(true);
-        then(truncatedSphere.round(truncatedSphere.calculateArea())).isEqualTo(59.69);
-
+    private void addPointsForInvalidTest() {
         points.clear();
         points.add(new Point(0, 0, 0));
         points.add(new Point(0, 5, 5));
         points.add(new Point(0, 6, 1));
-        truncatedSphere = new TruncatedSphere(points);
-        then(truncatedSphere.validateFigure()).isEqualTo(false);
     }
 }

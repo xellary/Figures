@@ -9,15 +9,15 @@ import static figures.consts.Consts.*;
 public class Polygon extends Figure {
     private final ArrayList<Point> points;
 
-    private int amountOfPoints;
+    private final int amountOfPoints;
 
     public Polygon(ArrayList<Point> points) {
         this.points = points;
+        amountOfPoints = points.size();
     }
 
     @Override
     public boolean validateFigure() {
-        amountOfPoints = points.size();
         if (amountOfPoints < AMOUNT_OF_POINTS_THREE) {
             return false;
         }

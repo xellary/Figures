@@ -10,25 +10,42 @@ import java.util.ArrayList;
 import static org.assertj.core.api.BDDAssertions.then;
 
 public class ConeTest {
-    @Test
-    @DisplayName("Cone area and perimeter methods")
-    public void ConeAreaAndPerimeterMethods() {
 
-        ArrayList<Point> points = new ArrayList<>();
+    ArrayList<Point> points = new ArrayList<>();
+
+    @Test
+    @DisplayName("Cone area method")
+    public void ConeAreaMethod() {
+        addPointsForValidTest();
+        Cone cone = new Cone(points);
+
+        then(cone.round(cone.calculateArea())).isEqualTo(75.40);
+    }
+
+    @Test
+    @DisplayName("Cone validation method")
+    public void ConeValidationMethod() {
+        addPointsForValidTest();
+        Cone cone = new Cone(points);
+        then(cone.validateFigure()).isEqualTo(true);
+
+        addPointsForInvalidTest();
+        cone = new Cone(points);
+        then(cone.validateFigure()).isEqualTo(false);
+    }
+
+    private void addPointsForValidTest() {
+        points.clear();
         points.add(new Point(0, 0));
         points.add(new Point(3, 0));
         points.add(new Point(0, 0, 4));
-        Cone cone = new Cone(points);
+    }
 
-        then(cone.validateFigure()).isEqualTo(true);
-        then(cone.round(cone.calculateArea())).isEqualTo(75.40);
-
+    private void addPointsForInvalidTest() {
         points.clear();
         points.add(new Point(1, 1, 0));
         points.add(new Point(0, 3, 0));
         points.add(new Point(1, 1, 0));
-        cone = new Cone(points);
-        then(cone.validateFigure()).isEqualTo(false);
     }
 }
 
