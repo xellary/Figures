@@ -31,6 +31,7 @@ public class RectangleTest {
         points.add(new Point(5, 0));
         points.add(new Point(5, 3));
         points.add(new Point(1, 2));
+        rectangle = new Rectangle(points);
         then(rectangle.validateFigure()).isEqualTo(false);
     }
 }

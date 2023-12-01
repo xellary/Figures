@@ -27,6 +27,7 @@ public class TruncatedSphereTest {
         points.add(new Point(0, 0, 0));
         points.add(new Point(0, 5, 5));
         points.add(new Point(0, 6, 1));
+        truncatedSphere = new TruncatedSphere(points);
         then(truncatedSphere.validateFigure()).isEqualTo(false);
     }
 }

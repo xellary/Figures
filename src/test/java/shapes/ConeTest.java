@@ -27,6 +27,7 @@ public class ConeTest {
         points.add(new Point(1, 1, 0));
         points.add(new Point(0, 3, 0));
         points.add(new Point(1, 1, 0));
+        cone = new Cone(points);
         then(cone.validateFigure()).isEqualTo(false);
     }
 }

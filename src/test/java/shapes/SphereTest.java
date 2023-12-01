@@ -25,6 +25,7 @@ public class SphereTest {
         points.clear();
         points.add(new Point(1, 1, 5));
         points.add(new Point(1, 1, 5));
+        sphere = new Sphere(points);
         then(sphere.validateFigure()).isEqualTo(false);
     }
 }

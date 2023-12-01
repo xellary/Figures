@@ -30,6 +30,7 @@ public class SquareTest {
         points.add(new Point(4, 0));
         points.add(new Point(4, 4));
         points.add(new Point(0, 3));
+        square = new Square(points);
         then(square.validateFigure()).isEqualTo(false);
     }
 }

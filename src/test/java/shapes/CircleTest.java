@@ -27,6 +27,7 @@ public class CircleTest {
         points.clear();
         points.add(new Point(1, 1));
         points.add(new Point(1, 1));
+        circle = new Circle(points);
         then(circle.validateFigure()).isEqualTo(false);
     }
 }

@@ -9,12 +9,14 @@ import static figures.consts.Consts.*;
 public class Sphere extends Figure {
     private final ArrayList<Point> points;
 
-    private Point center;
+    private final Point center;
 
-    private Point pointOnSurface;
+    private final Point pointOnSurface;
 
     public Sphere(ArrayList<Point> points) {
         this.points = points;
+        center = points.get(FIRST_POINT_INDEX);
+        pointOnSurface = points.get(SECOND_POINT_INDEX);
     }
 
     @Override
@@ -22,8 +24,6 @@ public class Sphere extends Figure {
         if (points.size() != AMOUNT_OF_POINTS_TWO) {
             return false;
         }
-        center = points.get(0);
-        pointOnSurface = points.get(1);
 
         if (center.getX() == pointOnSurface.getX()
                 && center.getY() == pointOnSurface.getY()

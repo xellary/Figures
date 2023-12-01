@@ -27,6 +27,7 @@ public class CylinderTest {
         points.add(new Point(1, 1, 1));
         points.add(new Point(1, 1, 1));
         points.add(new Point(2, 2, 1));
+        cylinder = new Cylinder(points);
         then(cylinder.validateFigure()).isEqualTo(false);
     }
 }

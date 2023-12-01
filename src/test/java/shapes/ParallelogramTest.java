@@ -31,6 +31,7 @@ public class ParallelogramTest {
         points.add(new Point(4, 0));
         points.add(new Point(6, 2));
         points.add(new Point(2, 1));
+        parallelogram = new Parallelogram(points);
         then(parallelogram.validateFigure()).isEqualTo(false);
     }
 }

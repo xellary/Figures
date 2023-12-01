@@ -9,14 +9,17 @@ import static figures.consts.Consts.*;
 public class Cone extends Figure {
     private final ArrayList<Point> points;
 
-    private Point center;
+    private final Point center;
 
-    private Point pointOnCircle;
+    private final Point pointOnCircle;
 
-    private Point apex;
+    private final Point apex;
 
     public Cone(ArrayList<Point> points) {
         this.points = points;
+        center = points.get(FIRST_POINT_INDEX);
+        pointOnCircle = points.get(SECOND_POINT_INDEX);
+        apex = points.get(THIRD_POINT_INDEX);
     }
 
     @Override
@@ -24,9 +27,6 @@ public class Cone extends Figure {
         if (points.size() != AMOUNT_OF_POINTS_THREE) {
             return false;
         }
-        center = points.get(0);
-        pointOnCircle = points.get(1);
-        apex = points.get(2);
 
         double radius = calculateLength(center, pointOnCircle);
         double height = calculateLength(center, apex);

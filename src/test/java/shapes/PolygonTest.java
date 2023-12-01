@@ -31,6 +31,7 @@ public class PolygonTest {
         points.add(new Point(2, 3));
         points.add(new Point(1, 3));
         points.add(new Point(2, 3));
+        polygon = new Polygon(points);
         then(polygon.validateFigure()).isEqualTo(false);
     }
 }

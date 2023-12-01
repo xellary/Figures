@@ -9,14 +9,17 @@ import static figures.consts.Consts.*;
 public class Cylinder extends Figure {
     private final ArrayList<Point> points;
 
-    private Point baseCenter;
+    private final Point baseCenter;
 
-    private Point pointOnBaseCircle;
+    private final Point pointOnBaseCircle;
 
-    private Point topCenter;
+    private final Point topCenter;
 
     public Cylinder(ArrayList<Point> points) {
         this.points = points;
+        baseCenter = points.get(FIRST_POINT_INDEX);
+        topCenter = points.get(SECOND_POINT_INDEX);
+        pointOnBaseCircle = points.get(THIRD_POINT_INDEX);
     }
 
     @Override
@@ -24,9 +27,6 @@ public class Cylinder extends Figure {
         if (points.size() != AMOUNT_OF_POINTS_THREE) {
             return false;
         }
-        baseCenter = points.get(0);
-        topCenter = points.get(1);
-        pointOnBaseCircle = points.get(2);
 
         if (baseCenter.equals(pointOnBaseCircle)) {
             return false;

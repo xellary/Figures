@@ -9,14 +9,17 @@ import static figures.consts.Consts.*;
 public class TruncatedSphere extends Figure {
     private final ArrayList<Point> points;
 
-    private Point center;
+    private final Point center;
 
-    private Point pointOnSurface;
+    private final Point pointOnSurface;
 
-    private Point pointOnCuttingCircle;
+    private final Point pointOnCuttingCircle;
 
     public TruncatedSphere(ArrayList<Point> points) {
         this.points = points;
+        center = points.get(FIRST_POINT_INDEX);
+        pointOnSurface = points.get(SECOND_POINT_INDEX);
+        pointOnCuttingCircle = points.get(THIRD_POINT_INDEX);
     }
 
     @Override
@@ -24,23 +27,15 @@ public class TruncatedSphere extends Figure {
         if (points.size() != AMOUNT_OF_POINTS_THREE) {
             return false;
         }
-        center = points.get(0);
-        pointOnSurface = points.get(1);
-        pointOnCuttingCircle = points.get(2);
 
         if (center.getX() == pointOnSurface.getX()
                 && center.getY() == pointOnSurface.getY()
                 && center.getZ() == pointOnSurface.getZ()) {
             return false;
         }
-        double[] vector1 = {
-                pointOnSurface.getX() - center.getX(),
-                pointOnSurface.getY() - center.getY(),
-                pointOnSurface.getZ() - center.getZ()};
-        double[] vector2 = {
-                pointOnCuttingCircle.getX() - center.getX(),
-                pointOnCuttingCircle.getY() - center.getY(),
-                pointOnCuttingCircle.getZ() - center.getZ()};
+        double[] vector1 = getVector(pointOnSurface, center);
+        double[] vector2 = getVector(pointOnCuttingCircle, center);
+
         double dotProduct = vector1[0] * vector2[0] + vector1[1] * vector2[1] + vector1[2] * vector2[2];
         if (dotProduct != 0) {
             return false;
@@ -61,5 +56,12 @@ public class TruncatedSphere extends Figure {
         double sideSurface = 2 * radius * height * Math.PI;
         double baseSurface = Math.PI * height * (2 * radius - height);
         return sideSurface + baseSurface;
+    }
+
+    private double[] getVector(Point pointA, Point pointB) {
+        return new double[]{
+                pointA.getX() - pointB.getX(),
+                pointA.getY() - pointB.getY(),
+                pointA.getZ() - pointB.getZ()};
     }
 }
