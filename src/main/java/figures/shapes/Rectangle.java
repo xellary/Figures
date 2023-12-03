@@ -17,25 +17,22 @@ public class Rectangle extends Figure {
 
     private double sideAD;
 
-    private final Point pointA;
+    private Point pointA;
 
-    private final Point pointB;
+    private Point pointB;
 
-    private final Point pointC;
+    private Point pointC;
 
-    private final Point pointD;
+    private  Point pointD;
 
     public Rectangle(ArrayList<Point> points) {
         this.points = points;
-        pointA = points.get(FIRST_POINT_INDEX);
-        pointB = points.get(SECOND_POINT_INDEX);
-        pointC = points.get(THIRD_POINT_INDEX);
-        pointD = points.get(FOURTH_POINT_INDEX);
     }
 
     @Override
     public boolean validateFigure() {
         if (points.size() == AMOUNT_OF_POINTS_FOUR) {
+            getPoints();
             calculateSides();
             return areAllAnglesEqual(pointA, pointB, pointC, pointD) && (sideAB == sideCD && sideBC == sideAD);
         }
@@ -44,12 +41,14 @@ public class Rectangle extends Figure {
 
     @Override
     public double calculateArea() {
+        getPoints();
         calculateSides();
         return sideAB * sideBC;
     }
 
     @Override
     public double calculatePerimeter() {
+        getPoints();
         calculateSides();
         return  (sideAB + sideBC) * 2;
     }
@@ -59,5 +58,12 @@ public class Rectangle extends Figure {
         sideBC = calculateLength(pointB, pointC);
         sideCD = calculateLength(pointC, pointD);
         sideAD = calculateLength(pointA, pointD);
+    }
+
+    private void getPoints() {
+        pointA = points.get(FIRST_POINT_INDEX);
+        pointB = points.get(SECOND_POINT_INDEX);
+        pointC = points.get(THIRD_POINT_INDEX);
+        pointD = points.get(FOURTH_POINT_INDEX);
     }
 }

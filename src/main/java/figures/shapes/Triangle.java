@@ -14,22 +14,20 @@ public class Triangle extends Figure {
 
     private  double sideAC;
 
-    private final Point pointA;
+    private Point pointA;
 
-    private final Point pointB;
+    private Point pointB;
 
-    private final Point pointC;
+    private Point pointC;
 
     public Triangle(ArrayList<Point> points) {
         this.points = points;
-        pointA = points.get(FIRST_POINT_INDEX);
-        pointB = points.get(SECOND_POINT_INDEX);
-        pointC = points.get(THIRD_POINT_INDEX);
     }
 
     @Override
     public boolean validateFigure() {
         if (points.size() == AMOUNT_OF_POINTS_THREE) {
+            getPoints();
             return ((pointB.getX() - pointA.getX())
                     * (pointC.getY() - pointA.getY())
                     - (pointC.getX() - pointA.getX())
@@ -40,13 +38,15 @@ public class Triangle extends Figure {
 
     @Override
     public double calculateArea() {
+        getPoints();
         calculateSides();
-        double halfPer = (sideAB + sideBC + sideAC) / 2;
+        double halfPer = calculatePerimeter() / 2;
         return Math.sqrt(halfPer * (halfPer - sideAB) * (halfPer - sideBC) * (halfPer - sideAC));
     }
 
     @Override
     public double calculatePerimeter() {
+        getPoints();
         calculateSides();
         return sideAB + sideBC + sideAC;
     }
@@ -55,5 +55,11 @@ public class Triangle extends Figure {
         sideAB = calculateLength(pointA, pointB);
         sideBC = calculateLength(pointB, pointC);
         sideAC = calculateLength(pointA, pointC);
+    }
+
+    private void getPoints() {
+        pointA = points.get(FIRST_POINT_INDEX);
+        pointB = points.get(SECOND_POINT_INDEX);
+        pointC = points.get(THIRD_POINT_INDEX);
     }
 }

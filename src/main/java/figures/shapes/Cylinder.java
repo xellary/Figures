@@ -9,17 +9,14 @@ import static figures.consts.Consts.*;
 public class Cylinder extends Figure {
     private final ArrayList<Point> points;
 
-    private final Point baseCenter;
+    private Point baseCenter;
 
-    private final Point pointOnBaseCircle;
+    private Point pointOnBaseCircle;
 
-    private final Point topCenter;
+    private Point topCenter;
 
     public Cylinder(ArrayList<Point> points) {
         this.points = points;
-        baseCenter = points.get(FIRST_POINT_INDEX);
-        topCenter = points.get(SECOND_POINT_INDEX);
-        pointOnBaseCircle = points.get(THIRD_POINT_INDEX);
     }
 
     @Override
@@ -28,6 +25,7 @@ public class Cylinder extends Figure {
             return false;
         }
 
+        getPoints();
         if (baseCenter.equals(pointOnBaseCircle)) {
             return false;
         }
@@ -41,8 +39,15 @@ public class Cylinder extends Figure {
     }
     @Override
     public double calculateArea() {
+        getPoints();
         double radius = calculateLength(pointOnBaseCircle, baseCenter);
         double height = calculateLength(topCenter, baseCenter);
         return  2 * Math.PI * radius * (radius + height);
+    }
+
+    private void getPoints() {
+        baseCenter = points.get(FIRST_POINT_INDEX);
+        topCenter = points.get(SECOND_POINT_INDEX);
+        pointOnBaseCircle = points.get(THIRD_POINT_INDEX);
     }
 }

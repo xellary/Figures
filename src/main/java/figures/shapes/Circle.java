@@ -9,19 +9,18 @@ import static figures.consts.Consts.*;
 public class Circle extends Figure {
     private final ArrayList<Point> points;
 
-    private final Point center;
+    private Point center;
 
-    private final Point pointOnCircle;
+    private Point pointOnCircle;
 
     public Circle(ArrayList<Point> points) {
         this.points = points;
-        center = points.get(FIRST_POINT_INDEX);
-        pointOnCircle = points.get(SECOND_POINT_INDEX);
     }
 
     @Override
     public boolean validateFigure() {
         if (points.size() == AMOUNT_OF_POINTS_TWO) {
+            getPoints();
             return !(center.getX() == pointOnCircle.getX()
                     && center.getY() == pointOnCircle.getY()
                     && center.getZ() == pointOnCircle.getZ());
@@ -31,13 +30,20 @@ public class Circle extends Figure {
 
     @Override
     public double calculateArea() {
+        getPoints();
         double radius = calculateLength(center, pointOnCircle);
         return Math.PI * Math.pow(radius, 2);
     }
 
     @Override
     public double calculatePerimeter() {
+        getPoints();
         double radius = calculateLength(center, pointOnCircle);
         return Math.PI * 2 * radius;
+    }
+
+    private void getPoints() {
+        center = points.get(FIRST_POINT_INDEX);
+        pointOnCircle = points.get(SECOND_POINT_INDEX);
     }
 }

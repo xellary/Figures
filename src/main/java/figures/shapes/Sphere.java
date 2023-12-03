@@ -9,14 +9,12 @@ import static figures.consts.Consts.*;
 public class Sphere extends Figure {
     private final ArrayList<Point> points;
 
-    private final Point center;
+    private Point center;
 
-    private final Point pointOnSurface;
+    private Point pointOnSurface;
 
     public Sphere(ArrayList<Point> points) {
         this.points = points;
-        center = points.get(FIRST_POINT_INDEX);
-        pointOnSurface = points.get(SECOND_POINT_INDEX);
     }
 
     @Override
@@ -25,6 +23,7 @@ public class Sphere extends Figure {
             return false;
         }
 
+        getPoints();
         if (center.getX() == pointOnSurface.getX()
                 && center.getY() == pointOnSurface.getY()
                 && center.getZ() == pointOnSurface.getZ()) {
@@ -38,7 +37,13 @@ public class Sphere extends Figure {
 
     @Override
     public double calculateArea() {
+        getPoints();
         double radius = calculateLength(pointOnSurface, center);
         return  4 * Math.PI * Math.pow(radius, 2);
+    }
+
+    private void getPoints() {
+        center = points.get(FIRST_POINT_INDEX);
+        pointOnSurface = points.get(SECOND_POINT_INDEX);
     }
 }

@@ -9,17 +9,14 @@ import static figures.consts.Consts.*;
 public class TruncatedSphere extends Figure {
     private final ArrayList<Point> points;
 
-    private final Point center;
+    private Point center;
 
-    private final Point pointOnSurface;
+    private Point pointOnSurface;
 
-    private final Point pointOnCuttingCircle;
+    private Point pointOnCuttingCircle;
 
     public TruncatedSphere(ArrayList<Point> points) {
         this.points = points;
-        center = points.get(FIRST_POINT_INDEX);
-        pointOnSurface = points.get(SECOND_POINT_INDEX);
-        pointOnCuttingCircle = points.get(THIRD_POINT_INDEX);
     }
 
     @Override
@@ -28,6 +25,7 @@ public class TruncatedSphere extends Figure {
             return false;
         }
 
+        getPoints();
         if (center.getX() == pointOnSurface.getX()
                 && center.getY() == pointOnSurface.getY()
                 && center.getZ() == pointOnSurface.getZ()) {
@@ -51,6 +49,7 @@ public class TruncatedSphere extends Figure {
 
     @Override
     public double calculateArea() {
+        getPoints();
         double radius = calculateLength(pointOnSurface, center);
         double height = radius - pointOnCuttingCircle.getZ();
         double sideSurface = 2 * radius * height * Math.PI;
@@ -63,5 +62,11 @@ public class TruncatedSphere extends Figure {
                 pointA.getX() - pointB.getX(),
                 pointA.getY() - pointB.getY(),
                 pointA.getZ() - pointB.getZ()};
+    }
+
+    private void getPoints() {
+        center = points.get(FIRST_POINT_INDEX);
+        pointOnSurface = points.get(SECOND_POINT_INDEX);
+        pointOnCuttingCircle = points.get(THIRD_POINT_INDEX);
     }
 }

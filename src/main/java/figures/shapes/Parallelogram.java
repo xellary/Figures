@@ -9,20 +9,16 @@ import static figures.consts.Consts.*;
 public class Parallelogram extends Figure {
     private final ArrayList<Point> points;
 
-    private final Point pointA;
+    private Point pointA;
 
-    private final Point pointB;
+    private Point pointB;
 
-    private final Point pointC;
+    private Point pointC;
 
-    private final Point pointD;
+    private Point pointD;
 
     public Parallelogram(ArrayList<Point> points) {
         this.points = points;
-        pointA = points.get(FIRST_POINT_INDEX);
-        pointB = points.get(SECOND_POINT_INDEX);
-        pointC = points.get(THIRD_POINT_INDEX);
-        pointD = points.get(FOURTH_POINT_INDEX);
     }
 
     @Override
@@ -37,6 +33,7 @@ public class Parallelogram extends Figure {
                 }
             }
         }
+        getPoints();
         int vector1X = pointB.getX() - pointA.getX();
         int vector1Y = pointB.getY() - pointA.getY();
         int vector2X = pointD.getX() - pointC.getX();
@@ -47,6 +44,7 @@ public class Parallelogram extends Figure {
 
     @Override
     public double calculateArea() {
+        getPoints();
         double vectorABx = pointB.getX() - pointA.getX();
         double vectorABy = pointB.getY() - pointA.getY();
         double vectorACx = pointC.getX() - pointA.getX();
@@ -64,5 +62,12 @@ public class Parallelogram extends Figure {
         }
         perimeter += calculateLength(points.get(points.size() - 1), points.get(0));
         return perimeter;
+    }
+
+    private void getPoints() {
+        pointA = points.get(FIRST_POINT_INDEX);
+        pointB = points.get(SECOND_POINT_INDEX);
+        pointC = points.get(THIRD_POINT_INDEX);
+        pointD = points.get(FOURTH_POINT_INDEX);
     }
 }
