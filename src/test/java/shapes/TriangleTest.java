@@ -28,11 +28,11 @@ public class TriangleTest {
     public void TriangleValidationMethod() {
         addPointsForValidTest();
         Triangle triangle = new Triangle(points);
-        then(triangle.validateFigure()).isEqualTo(true);
+        then(triangle.validateFigure()).isTrue();
 
         addPointsForInvalidTest();
         triangle = new Triangle(points);
-        then(triangle.validateFigure()).isEqualTo(false);
+        then(triangle.validateFigure()).isFalse();
     }
 
     private void addPointsForValidTest() {

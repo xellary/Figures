@@ -36,7 +36,8 @@ public class Cone extends Figure {
         getPoints();
         double radius = calculateLength(pointOnCircle, center);
         double height = calculateLength(apex, center);
-        return Math.PI * radius * (radius + Math.sqrt(Math.pow(height, 2) + Math.pow(radius, 2)));
+        double l = Math.sqrt(Math.pow(height, 2) + Math.pow(radius, 2));
+        return Math.PI * radius * (radius + l);
     }
 
     private void getPoints() {

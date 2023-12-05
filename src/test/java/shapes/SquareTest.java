@@ -28,11 +28,11 @@ public class SquareTest {
     public void SquareValidationMethod() {
         addPointsForValidTest();
         Square square = new Square(points);
-        then(square.validateFigure()).isEqualTo(true);
+        then(square.validateFigure()).isTrue();
 
         addPointsForInvalidTest();
         square = new Square(points);
-        then(square.validateFigure()).isEqualTo(false);
+        then(square.validateFigure()).isFalse();
     }
 
     private void addPointsForValidTest() {

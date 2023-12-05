@@ -28,11 +28,11 @@ public class CircleTest {
     public void CircleValidationMethod() {
         addPointsForValidTest();
         Circle circle = new Circle(points);
-        then(circle.validateFigure()).isEqualTo(true);
+        then(circle.validateFigure()).isTrue();
 
         addPointsForInvalidTest();
         circle = new Circle(points);
-        then(circle.validateFigure()).isEqualTo(false);
+        then(circle.validateFigure()).isFalse();
     }
 
     private void addPointsForValidTest() {

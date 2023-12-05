@@ -50,7 +50,7 @@ public class Rectangle extends Figure {
     public double calculatePerimeter() {
         getPoints();
         calculateSides();
-        return  (sideAB + sideBC) * 2;
+        return (sideAB + sideBC) * 2;
     }
 
     private void calculateSides() {

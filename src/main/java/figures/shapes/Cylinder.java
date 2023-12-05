@@ -26,12 +26,8 @@ public class Cylinder extends Figure {
         }
 
         getPoints();
-        if (baseCenter.equals(pointOnBaseCircle)) {
-            return false;
-        }
-
-        double radiusSquared = calculateLength(pointOnBaseCircle, baseCenter);
-        if (radiusSquared <= 0) {
+        double radius = calculateLength(pointOnBaseCircle, baseCenter);
+        if (radius <= 0) {
             return false;
         }
         double height = Math.abs(topCenter.getZ() - baseCenter.getZ());

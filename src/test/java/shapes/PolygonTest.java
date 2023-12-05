@@ -29,11 +29,11 @@ public class PolygonTest {
     public void PolygonValidationMethod() {
         addPointsForValidTest();
         Polygon polygon = new Polygon(points);
-        then(polygon.validateFigure()).isEqualTo(true);
+        then(polygon.validateFigure()).isTrue();
 
         addPointsForInvalidTest();
         polygon = new Polygon(points);
-        then(polygon.validateFigure()).isEqualTo(false);
+        then(polygon.validateFigure()).isFalse();
     }
 
     private void addPointsForValidTest() {

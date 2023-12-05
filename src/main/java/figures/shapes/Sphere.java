@@ -24,15 +24,8 @@ public class Sphere extends Figure {
         }
 
         getPoints();
-        if (center.getX() == pointOnSurface.getX()
-                && center.getY() == pointOnSurface.getY()
-                && center.getZ() == pointOnSurface.getZ()) {
-            return false;
-        }
-
         double radiusSquared = calculateLength(pointOnSurface, center);
-        return !(radiusSquared <= 0);
-
+        return radiusSquared > 0;
     }
 
     @Override

@@ -27,11 +27,11 @@ public class ConeTest {
     public void ConeValidationMethod() {
         addPointsForValidTest();
         Cone cone = new Cone(points);
-        then(cone.validateFigure()).isEqualTo(true);
+        then(cone.validateFigure()).isTrue();
 
         addPointsForInvalidTest();
         cone = new Cone(points);
-        then(cone.validateFigure()).isEqualTo(false);
+        then(cone.validateFigure()).isFalse();
     }
 
     private void addPointsForValidTest() {

@@ -27,11 +27,11 @@ public class TruncatedSphereTest {
     public void TruncatedSphereValidationMethod() {
         addPointsForValidTest();
         TruncatedSphere truncatedSphere = new TruncatedSphere(points);
-        then(truncatedSphere.validateFigure()).isEqualTo(true);
+        then(truncatedSphere.validateFigure()).isTrue();
 
         addPointsForInvalidTest();
         truncatedSphere = new TruncatedSphere(points);
-        then(truncatedSphere.validateFigure()).isEqualTo(false);
+        then(truncatedSphere.validateFigure()).isFalse();
     }
 
     private void addPointsForValidTest() {

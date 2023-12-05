@@ -26,11 +26,7 @@ public class TruncatedSphere extends Figure {
         }
 
         getPoints();
-        if (center.getX() == pointOnSurface.getX()
-                && center.getY() == pointOnSurface.getY()
-                && center.getZ() == pointOnSurface.getZ()) {
-            return false;
-        }
+
         double[] vector1 = getVector(pointOnSurface, center);
         double[] vector2 = getVector(pointOnCuttingCircle, center);
 
@@ -43,8 +39,8 @@ public class TruncatedSphere extends Figure {
         if (radiusSquared <= 0) {
             return false;
         }
-        double heightSquared = calculateLength(pointOnCuttingCircle, center);
-        return !(heightSquared <= 0);
+        double height = calculateLength(pointOnCuttingCircle, center);
+        return height > 0;
     }
 
     @Override

@@ -29,11 +29,11 @@ public class RectangleTest {
     public void RectangleValidationMethod() {
         addPointsForValidTest();
         Rectangle rectangle = new Rectangle(points);
-        then(rectangle.validateFigure()).isEqualTo(true);
+        then(rectangle.validateFigure()).isTrue();
 
         addPointsForInvalidTest();
         rectangle = new Rectangle(points);
-        then(rectangle.validateFigure()).isEqualTo(false);
+        then(rectangle.validateFigure()).isFalse();
     }
 
     private void addPointsForValidTest() {

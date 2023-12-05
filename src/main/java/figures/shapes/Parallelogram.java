@@ -56,12 +56,10 @@ public class Parallelogram extends Figure {
 
     @Override
     public double calculatePerimeter() {
-        double perimeter = 0;
-        for (int i = 0; i < points.size() - 1; i++) {
-            perimeter += calculateLength(points.get(i), points.get(i + 1));
-        }
-        perimeter += calculateLength(points.get(points.size() - 1), points.get(0));
-        return perimeter;
+        getPoints();
+        double sideAB = calculateLength(pointA, pointB);
+        double sideBC = calculateLength(pointB, pointC);
+        return 2 * (sideAB + sideBC);
     }
 
     private void getPoints() {

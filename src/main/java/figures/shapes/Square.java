@@ -33,7 +33,7 @@ public class Square extends Figure {
         if (points.size() == AMOUNT_OF_POINTS_FOUR) {
             getPoints();
             calculateSides();
-            return sidesAreEqual() && areAllAnglesEqual(pointA, pointB, pointC, pointD);
+            return areSidesEqual() && areAllAnglesEqual(pointA, pointB, pointC, pointD);
         }
         return false;
     }
@@ -52,7 +52,7 @@ public class Square extends Figure {
         return sideAB * AMOUNT_OF_POINTS_FOUR;
     }
 
-    private boolean sidesAreEqual() {
+    private boolean areSidesEqual() {
         return sideAB == sideBC && sideCD == sideAD && sideAB == sideCD;
     }
 

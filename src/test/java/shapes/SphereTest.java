@@ -29,11 +29,11 @@ public class SphereTest {
     public void SphereValidationMethod() {
         addPointsForValidTest();
         Sphere sphere = new Sphere(points);
-        then(sphere.validateFigure()).isEqualTo(true);
+        then(sphere.validateFigure()).isTrue();
 
         addPointsForInvalidTest();
         sphere = new Sphere(points);
-        then(sphere.validateFigure()).isEqualTo(false);
+        then(sphere.validateFigure()).isFalse();
     }
 
     private void addPointsForValidTest() {

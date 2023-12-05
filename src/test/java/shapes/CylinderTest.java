@@ -27,11 +27,11 @@ public class CylinderTest {
     public void CylinderValidationMethod() {
         addPointsForValidTest();
         Cylinder cylinder = new Cylinder(points);
-        then(cylinder.validateFigure()).isEqualTo(true);
+        then(cylinder.validateFigure()).isTrue();
 
         addPointsForInvalidTest();
         cylinder = new Cylinder(points);
-        then(cylinder.validateFigure()).isEqualTo(false);
+        then(cylinder.validateFigure()).isFalse();
     }
 
     private void addPointsForValidTest() {

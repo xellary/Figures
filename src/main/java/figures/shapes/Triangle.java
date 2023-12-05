@@ -28,10 +28,10 @@ public class Triangle extends Figure {
     public boolean validateFigure() {
         if (points.size() == AMOUNT_OF_POINTS_THREE) {
             getPoints();
-            return ((pointB.getX() - pointA.getX())
+            return (pointB.getX() - pointA.getX())
                     * (pointC.getY() - pointA.getY())
                     - (pointC.getX() - pointA.getX())
-                    * (pointB.getY() - pointA.getY())) != 0;
+                    * (pointB.getY() - pointA.getY()) != 0;
         }
         return false;
     }

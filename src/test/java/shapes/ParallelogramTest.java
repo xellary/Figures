@@ -29,11 +29,11 @@ public class ParallelogramTest {
     public void ParallelogramValidationMethod() {
         addPointsForValidTest();
         Parallelogram parallelogram = new Parallelogram(points);
-        then(parallelogram.validateFigure()).isEqualTo(true);
+        then(parallelogram.validateFigure()).isTrue();
 
         addPointsForInvalidTest();
         parallelogram = new Parallelogram(points);
-        then(parallelogram.validateFigure()).isEqualTo(false);
+        then(parallelogram.validateFigure()).isFalse();
     }
 
     private void addPointsForValidTest() {
